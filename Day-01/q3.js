@@ -14,3 +14,4 @@ let newData =  {...profile,
     
     } ;
 console.log(newData)
+
