@@ -1,4 +1,3 @@
-// components/QuoteCard.jsx
 import React from "react";
 
 export default function QuoteCard({ quote, author, fontSize, theme }) {

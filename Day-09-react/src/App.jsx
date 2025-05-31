@@ -29,19 +29,24 @@ function App() {
   const theme = isDark ? darkTheme : lightTheme;
 
   const fetchQuote = async () => {
-    try {
-      const res = await axios.get("https://zenquotes.io/api/random");
-      setQuote(res.data[0].q);
-      setAuthor(res.data[0].a);
-      setLiked(false);
-    } catch (error) {
-      console.log("Failed to fetch quote");
-    }
-  };
+  try {
+    const res = await axios.get(
+      "https://api.allorigins.win/get?url=" + encodeURIComponent("https://zenquotes.io/api/random")
+    );
 
-  useEffect(() => {
-    fetchQuote();
-  }, []);
+    const data = JSON.parse(res.data.contents);
+    setQuote(data[0].q);
+    setAuthor(data[0].a);
+    setLiked(false);
+  } catch (error) {
+    console.log("Failed to fetch quote", error);
+  }
+};
+
+useEffect(() => {
+  fetchQuote();
+}, []);
+
 
   const handleLike = () => {
     if (liked === false) {
