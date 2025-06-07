@@ -1,0 +1,1 @@
+//https://leetcode.com/problems/first-bad-version/submissions/1656995013/
